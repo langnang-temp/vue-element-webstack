@@ -1,4 +1,4 @@
-# Vue Template
+# Vue Element Template
 
 - `Vue`: Vue
 - `Router`: Vue-Router
@@ -7,15 +7,15 @@
 - `FontIcon`: FontAwesome
 - `JavaScript`: Lodash
 - `Date`: moment
-
+- `UI`: Element
 ## Branches
 
 ```sh
-┌───────────────────────┐       ┌─────────────────────────┐       ┌───────────┐       ┌──────────┐
-|                       |       |                         |       |           |       |          |
-|  @langnang-temp/node  | ====> |    @langnang-temp/vue   | ====> |  develop  | ====> |  master  |
-|  Sync from template   |       |      Sync to remote     |       |           |       |          |
-└───────────────────────┘       └─────────────────────────┘       └───────────┘       └──────────┘
+┌───────────────────────┐       ┌─────────────────────────────────┐       ┌───────────┐       ┌──────────┐
+|                       |       |                                 |       |           |       |          |
+|  @langnang-temp/vue   | ====> |    @langnang-temp/vue-element   | ====> |  develop  | ====> |  master  |
+|  Sync from template   |       |          Sync to remote         |       |           |       |          |
+└───────────────────────┘       └─────────────────────────────────┘       └───────────┘       └──────────┘
 ```
 
 ### Sync to remote
