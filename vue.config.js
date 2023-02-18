@@ -1,6 +1,6 @@
 module.exports = {
   // 基本路径
-  publicPath: process.env.NODE_ENV === "production" ? "/vue-element-ui/" : "/",
+  publicPath: process.env.NODE_ENV === "production" ? "/vue-element-webstack/" : "/",
   // 构建时的输入目录
   outputDir: "dist",
   // 配置 webpack-dev-server 行为
@@ -12,7 +12,7 @@ module.exports = {
   // 允许对内部的 webpack 配置进行更细粒度的修改。
   chainWebpack: function (config) {
     config.plugin("html").tap(function (args) {
-      args[0].title = "Vue Element - Langnang Template"; // 自定义标题
+      args[0].title = "Vue Element WebStack - Langnang Template"; // 自定义标题
       return args;
     });
   }
