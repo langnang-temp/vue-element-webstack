@@ -1,6 +1,6 @@
 <template>
   <div>
-    <div v-for="(item, idx) in tree" :key="idx">
+    <div v-for="(item, idx) in items" :key="idx">
       <div v-if="item.web">
         <WebItem :item="item" :transName="transName" :prefix="$route.meta.prefix" />
       </div>
@@ -14,11 +14,9 @@
 <script>
 import WebItem from "../components/WebItem.vue";
 import Footer from "../components/Footer.vue";
-import itemsData from "../assets/designer.json";
+import itemsData from "../assets/developer.json";
 // import { loadJs } from '../assets/js/app.js'
 import { mapMutations, mapState } from "vuex";
-import { getMetaList } from "../api/meta"
-
 export default {
   name: "Index",
   components: {
@@ -43,13 +41,13 @@ export default {
     };
   },
   computed: {
-    ...mapState(["tree", "prefix"]),
+    ...mapState(["tree"]),
   },
   created() {
     this.SET_TREE(itemsData);
     this.lang = this.langList[0];
+    console.log(this.$route);
     // loadJs();
-    // getMetaList({ type: "branch" });
   },
   methods: {
     ...mapMutations(["SET_TREE"]),

@@ -19,9 +19,12 @@ specifiers:
   eslint: ^6.7.2
   eslint-plugin-prettier: ^3.3.1
   eslint-plugin-vue: ^6.2.2
+  js-cookie: 2.2.0
   lodash: ^4.17.21
+  mockjs: ^1.1.0
   moment: ^2.29.1
   node-sass: ^4.14.1
+  nprogress: 0.2.0
   prettier: ^2.2.1
   sass-loader: ^7.3.1
   vue: ^2.6.11
@@ -39,8 +42,10 @@ dependencies:
   axios: 0.26.1
   core-js: 3.28.0
   element-ui: 2.15.13_vue@2.7.14
+  js-cookie: 2.2.0
   lodash: 4.17.21
   moment: 2.29.4
+  nprogress: 0.2.0
   vue: 2.7.14
   vue-router: 3.6.5
   vuex: 3.6.2_vue@2.7.14
@@ -56,6 +61,7 @@ devDependencies:
   eslint: 6.8.0
   eslint-plugin-prettier: 3.4.1_wzf5l6xyzrhbpbfze7vqgfjrg4
   eslint-plugin-vue: 6.2.2_eslint@6.8.0
+  mockjs: 1.1.0
   node-sass: 4.14.1
   prettier: 2.8.4
   sass-loader: 7.3.1
@@ -6310,6 +6316,10 @@ packages:
     resolution: {integrity: sha512-pZe//GGmwJndub7ZghVHz7vjb2LgC1m8B07Au3eYqeqv9emhESByMXxaEgkUkEqJe87oBbSniGYoQNIBklc7IQ==}
     dev: true
 
+  /js-cookie/2.2.0:
+    resolution: {integrity: sha512-7YAJP/LPE/MhDjHIdfIiT665HUSumCwPN2hAmO6OJZ8V3o1mtz2HeQ8BKetEjkh+3nqGxYaq1vPMViUR8kaOXw==}
+    dev: false
+
   /js-message/1.0.7:
     resolution: {integrity: sha512-efJLHhLjIyKRewNS9EGZ4UpI8NguuL6fKkhRxVuMmrGV2xN/0APGdQYwLFky5w9naebSZ0OwAGp0G6/2Cg90rA==}
     engines: {node: '>=0.6.0'}
@@ -6861,6 +6871,13 @@ packages:
       minimist: 1.2.8
     dev: true
 
+  /mockjs/1.1.0:
+    resolution: {integrity: sha512-eQsKcWzIaZzEZ07NuEyO4Nw65g0hdWAyurVol1IPl1gahRwY+svqzfgfey8U8dahLwG44d6/RwEzuK52rSa/JQ==}
+    hasBin: true
+    dependencies:
+      commander: 2.20.3
+    dev: true
+
   /moment/2.29.4:
     resolution: {integrity: sha512-5LC9SOxjSc2HF6vO2CyuTDNivEdoz2IvyJJGj6X8DJ0eFyfszE0QiEd+iXmBvUP3WHxSjFH/vIsA0EN00cgr8w==}
     dev: false
@@ -7142,6 +7159,10 @@ packages:
       gauge: 2.7.4
       set-blocking: 2.0.0
     dev: true
+
+  /nprogress/0.2.0:
+    resolution: {integrity: sha512-I19aIingLgR1fmhftnbWWO3dXc0hSxqHQHQb3H8m+K3TnEn/iSeTZZOyvKXWqQESMwuUVnatlCnZdLBZZt2VSA==}
+    dev: false
 
   /nth-check/1.0.2:
     resolution: {integrity: sha512-WeBOdju8SnzPN5vTUJYxYUxLeXpCaVP5i5e0LF8fg7WORF2Wd7wFX/pk0tYZk7s8T+J7VLy0Da6J1+wCT0AtHg==}
