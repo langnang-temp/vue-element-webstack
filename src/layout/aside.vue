@@ -21,37 +21,51 @@
         </div>
       </header>
       <!-- 侧边栏 -->
-      <el-menu background-color="#2c2e2f" text-color="#979898" active-text-color="#ffd04b" unique-opened style="border: unset">
-        <component v-for="(menu, idx) in $store.state.app.tree" :key="idx" :index="menu.name" :is="menu.children ? 'el-submenu' : 'el-menu-item'">
-          <template slot="title">
-            <a :href="'#' + $store.state.app.prefix + menu.name" class="smooth">
-              <i :class="menu.icon"></i>
-              <span class="title">{{ menu.name }}</span>
-            </a>
-          </template>
-          <el-menu-item v-for="(submenu, idx) in menu.children" :key="idx" :index="submenu.name">
-            <a :href="'#' + $store.state.app.prefix + submenu.name" class="smooth">
-              <i :class="submenu.icon"></i>
-              <span class="title">{{ submenu.name }}</span>
-              <span v-show="submenu.is_hot" class="label label-pink pull-right hidden-collapsed">Hot</span>
-            </a>
+      <el-menu background-color="#2c2e2f" text-color="#979898" active-text-color="#ffd04b" unique-opened style="border: unset" v-contextmenu:contextmenu>
+        <draggable v-model="$store.state.app.tree">
+          <component v-for="(menu, idx) in $store.state.app.tree" :key="idx" :index="menu.name" :is="menu.children ? 'el-submenu' : 'el-menu-item'">
+            <template slot="title">
+              <a :href="'#' + $store.state.app.prefix + menu.name" class="smooth">
+                <i :class="menu.icon"></i>
+                <span class="title">{{ menu.name }}</span>
+              </a>
+            </template>
+            <draggable v-model="menu.children">
+              <el-menu-item v-for="(submenu, idx) in menu.children" :key="idx" :index="submenu.name">
+                <a :href="'#' + $store.state.app.prefix + submenu.name" class="smooth">
+                  <i :class="submenu.icon"></i>
+                  <span class="title">{{ submenu.name }}</span>
+                  <span v-show="submenu.is_hot" class="label label-pink pull-right hidden-collapsed">Hot</span>
+                </a>
+              </el-menu-item>
+            </draggable>
+          </component>
+          <el-menu-item>
+            <router-link to="/about" class="smooth" index="about">
+              <i class="linecons-heart"></i>
+              <span class="tooltip-blue">关于本站</span>
+              <span class="label label-primary pull-right hidden-collapsed">♥︎</span>
+            </router-link>
           </el-menu-item>
-        </component>
-        <el-menu-item>
-          <router-link to="/about" class="smooth" index="about">
-            <i class="linecons-heart"></i>
-            <span class="tooltip-blue">关于本站</span>
-            <span class="label label-primary pull-right hidden-collapsed">♥︎</span>
-          </router-link>
-        </el-menu-item>
+        </draggable>
       </el-menu>
     </div>
+    <v-contextmenu ref="contextmenu">
+      <v-contextmenu-item>新增</v-contextmenu-item>
+      <v-contextmenu-item>删除</v-contextmenu-item>
+      <v-contextmenu-item>修改</v-contextmenu-item>
+      <v-contextmenu-item>删除</v-contextmenu-item>
+      <hr style="margin-top:3px;margin-bottom: 3px;" />
+      <v-contextmenu-item>批量</v-contextmenu-item>
+    </v-contextmenu>
   </el-aside>
 </template>
 <script>
 import { mapState } from "vuex";
+import draggable from 'vuedraggable'
 export default {
   name: "LayoutAside",
+  components: { draggable },
   data() {
     return {};
   },

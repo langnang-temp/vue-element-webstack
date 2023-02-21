@@ -1,17 +1,18 @@
 import request from "@/plugins/axios";
-
-export function selectMetaList(data) {
-  return request({
+function insertMetaItem() {}
+function insertMetaList() {}
+function deleteMetaItem() {}
+function deleteMetaList() {}
+function updateMetaItem() {}
+function updateMetaList() {}
+export const selectMetaList = (data) =>  request({
     url: "/vue-element-webstack/meta/list",
     method: "post",
     data,
   });
-}
 
-export function selectMetaTree(data) {
-  return request({
+export const selectMetaTree = (data) => request({
     url: "/vue-element-webstack/meta/tree",
     method: "post",
     data,
   });
-}

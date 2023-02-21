@@ -1,5 +1,5 @@
 <template>
-  <div :id="prefix + transName(item)" style="margin-bottom: -70px; padding-top: 90px">
+  <div :id="prefix + transName(item)" v-contextmenu:contextmenu style="margin-bottom: -65px; padding-top: 85px">
     <el-card :body-style="{ 'padding': '0 10px 10px 10px' }">
       <template slot="header" style="padding:10px">
         <h4 class="text-gray">
@@ -9,30 +9,47 @@
       </template>
 
       <el-row :gutter="20">
-        <el-col :span="6" v-for="(web, idx) in item.web" :key="idx">
-          <el-tooltip effect="dark" :content="web.url" placement="bottom">
-            <el-card shadow="hover" @click.native="openweb(web.url)" style="margin: 10px 0 0 0; height: 86px; cursor: pointer">
-              <div class="xe-comment-entry">
-                <div class="xe-user-img">
-                  <img :src="web.logo" style="width: 40px; height: 40px" class="lozad img-circle" width="40" />
+        <draggable v-model="item.web">
+          <el-col :span="6" v-for="(web, idx) in item.web" :key="idx">
+            <el-tooltip effect="dark" :content="web.url" placement="bottom">
+              <el-card shadow="hover" @click.native="openweb(web.url)" style="margin: 10px 0 0 0; height: 86px; cursor: pointer">
+                <div class="xe-comment-entry">
+                  <div class="xe-user-img">
+                    <img :src="web.logo" style="width: 40px; height: 40px" class="lozad img-circle" width="40" />
+                  </div>
+                  <div class="xe-comment" style="margin-left: 40px;">
+                    <a href="#" class="xe-user-name overflowClip_1">
+                      <strong>{{ web.title }}</strong>
+                    </a>
+                    <p class="overflowClip_2">{{ web.desc }}</p>
+                  </div>
                 </div>
-                <div class="xe-comment" style="margin-left: 40px;">
-                  <a href="#" class="xe-user-name overflowClip_1">
-                    <strong>{{ web.title }}</strong>
-                  </a>
-                  <p class="overflowClip_2">{{ web.desc }}</p>
-                </div>
-              </div>
-            </el-card>
-          </el-tooltip></el-col>
+              </el-card>
+            </el-tooltip>
+          </el-col>
+        </draggable>
       </el-row>
     </el-card>
+    <v-contextmenu ref="contextmenu">
+      <v-contextmenu-item>新增</v-contextmenu-item>
+      <v-contextmenu-item>删除</v-contextmenu-item>
+      <v-contextmenu-item>修改</v-contextmenu-item>
+      <v-contextmenu-item>删除</v-contextmenu-item>
+      <hr style="margin-top:3px;margin-bottom: 3px;" />
+      <v-contextmenu-item>迁移</v-contextmenu-item>
+      <hr style="margin-top:3px;margin-bottom: 3px;" />
+      <v-contextmenu-item>批量</v-contextmenu-item>
+      <hr style="margin-top:3px;margin-bottom: 3px;" />
+      <v-contextmenu-item>详情</v-contextmenu-item>
+    </v-contextmenu>
   </div>
 </template>
 
 <script>
+import draggable from 'vuedraggable'
 export default {
   name: "WebItem",
+  components: { draggable },
   props: {
     item: Object,
     transName: Function,
@@ -49,7 +66,7 @@ export default {
 <style scoped lang="scss">
 ::v-deep {
   .el-card__header {
-    padding: 8px 10px
+    padding: 8px 10px;
   }
 }
 
